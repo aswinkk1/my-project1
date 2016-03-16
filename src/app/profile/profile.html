@@ -1,0 +1,33 @@
+<div id="wrap">
+<div id="main">
+    <div ng-include="'app/components/navbar/navbar.html'"></div>
+<div class="mainContainer"> 
+  <div id="profile-container" class="container" ng-class="{ 'waiting' : showChangePasswordApiWait }">
+
+    <h3 class="text-left">Profile</h3>
+    <hr>
+    <a href="profile/" class="profile-item-divider">Personal Information</a>
+    <a href="profile/">Preferences</a>
+   <!-- <div class="col-sm-3 col-xs-12">
+      <ul class="aside-nav">
+        <li>
+          <a ng-class =  "{'active':currentState=='profile.my-profile'}" ng-href="#/profile/my-profile">My Profile</a>
+        </li>
+        <li>
+          <a ng-class =  "{'active':currentState=='profile.edit-profile'}" ng-href="#/profile/edit-profile">Edit Profile</a>
+        </li>
+        <li ng-if="showChangePassword">
+          <a ng-class =  "{'active':currentState=='profile.change-password'}" ng-href="#/profile/change-password">Change Password</a>
+        </li>
+      </ul>
+    </div>-->
+    <div class="row">
+      <div ng-class = "{'waiting':apiWait}" ui-view ></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div ng-include="'app/components/footer/footer.html'" class="hidden-xs hidden-sm hidden-md">
+</div>
+

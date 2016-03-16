@@ -1,0 +1,40 @@
+<div class="text-center card-detail-dialog">
+    <div class="media">
+        <h2>{{data.card_name}}</h2>
+        <div class="media-left media-middle">
+            <img class="media-object" ng-src="{{data.card_image.length > 0 && data.card_image || '../assets/images/dummy_card.png'}}" alt="{{data.card_name}}">
+            <a ng-if="!data.in_wallet" class="kard-btn kard-btn-xs" ng-click='addToWallet({{data.id}},"{{data.card_name}}");  apiWait = true;' ng-hide="detailOnly">Add to KARD wallet</a>
+            <a ng-if="data.in_wallet && !data.primary_card" class="kard-btn kard-btn-xs kard-btn-assertive" ng-click = 'removeFromWallet({{data.id}},"{{data.card_name}}""); apiWait = true;' ng-hide="detailOnly">Remove from wallet</a>
+            <a ng-if="data.primary_card" class="kard-badge badge-ngdialog">This is your Primary card</a>
+        </div>
+        <div class="media-body">
+            <ul class="feature-sub card-feature-list">
+                <li ng-repeat= "feature in data.card_features">
+                <!--  &#36;&nbsp;&nbsp;{{feature}} -->
+                &middot;&nbsp;&nbsp;{{feature}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-12 card-feature-table">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>EMV</th>
+                    <th>Annual Fee</th>
+                    <th>Foreign Transaction Fee</th>
+                    <th>APR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{data.emv}}</td>
+                    <td>{{data.annual_fee}}</td>
+                    <td>{{data.foreign_transaction_fee}}</td>
+                    <td>{{data.apr}}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <a class="kard-btn kard-btn-negative kard-btn-xs" ng-click = "closeThisDialog(true);">Close</a> -->
+    </div>
+</div>

@@ -1,0 +1,172 @@
+<div class="container onboard-main wallet" ng-controller="KardCatSelectController">
+	<h2>Add your credit cards to your Kard wallet</h2>
+	<h5>Search for your credit cards below and add to your Kard wallet</h5>
+	<div class="form-group row search-group vertical-aligner horizontal-aligner">
+		<angucomplete-alt id="ex1"
+                  placeholder="Search for your credit Card"
+                  pause="1000"
+                  selected-object="selectedCard"
+                  search-fields="card_name"
+                  title-field="card_name"
+                  image-field="card_image"
+                  in-wallet="in_wallet"
+                  primary-card="primary_card"
+                  minlength="1"
+                  clear-selected="true"
+                  input-changed = "inputChange"
+                  remote-api-handler= "searchAutoComplete"
+                  template-url="/my-custom-template.html"
+                  input-class="form-control form-control-small"/>
+            </angucomplete-alt>
+
+		<button class="wallet-add-btn">ADD</button>
+	</div>
+	<hr>
+	<div class="row" hidden>
+		<div class="col-md-offset-3 col-sm-offset-3 col-md-6 col-sm-6 bordered vertical-aligner horizontal-aligner">
+			Please add a minimum of 1 card to continue
+		</div>
+	</div>
+	<div class="row add-card">
+		<div class="row card-row">
+			<div class="col-xs-12 col-md-3 col-sm-3">
+				<div class=" vertical-aligner horizontal-aligner">
+					<img src="../assets/images/card_01.gif">
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-5 col-sm-5">
+				<div class="col-xs-12 col-md-offset-1 col-sm-offset-1 col-md-3 col-sm-3">
+					<div class="vertical-aligner horizontal-aligner">
+						<div class="reward-container text-center">
+							<h2>1X</h2>
+							<h5>Starwood points with hotels</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-offset-1 col-sm-offset-1 col-sm-offset-1 col-md-3 col-sm-3 vertical-aligner horizontal-aligner">
+					<div class="vertical-aligner horizontal-aligner">
+						<div class="reward-container text-center">
+							<h2>1X</h2>
+							<h5>Dining at restaurants</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-offset-1 col-sm-offset-1 col-md-3 col-sm-3 vertical-aligner horizontal-aligner">
+					<div class="vertical-aligner horizontal-aligner">
+						<div class="reward-container text-center">
+							<h2>1X</h2>
+							<h5>Dining at restaurants</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-2 col-sm-2">
+				<div class="vertical-aligner horizontal-aligner">
+					<img src="../assets/images/Chase_shappire-logo.png">
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-2 col-sm-2">
+				<div class="vertical-aligner horizontal-aligner">
+					<a>
+						<div class="vertical-aligner horizontal-aligner">
+							Remove Card
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="row card-row">
+			<div class="col-xs-12 col-md-3 col-sm-3">
+				<div class=" vertical-aligner horizontal-aligner">
+					<img src="../assets/images/card_01.gif">
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-5 col-sm-5">
+				<div class="col-xs-12 col-md-offset-1 col-sm-offset-1 col-md-3 col-sm-3 vertical-aligner horizontal-aligner">
+					<div class="vertical-aligner horizontal-aligner">
+						<div class="reward-container text-center">
+							<h2>1X</h2>
+							<h5>Dining at restaurants</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-offset-1 col-sm-offset-1 col-sm-offset-1 col-md-3 col-sm-3 vertical-aligner horizontal-aligner">
+					<div class="vertical-aligner horizontal-aligner">
+						<div class="reward-container text-center">
+							<h2>2X</h2>
+							<h5>Starwood points</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-offset-1 col-sm-offset-1 col-md-3 col-sm-3 vertical-aligner horizontal-aligner">
+					<div class="vertical-aligner horizontal-aligner">
+						<div class="reward-container text-center">
+							<h2>$0</h2>
+							<h5>Starwood points</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-2 col-sm-2">
+				<div class="vertical-aligner horizontal-aligner">
+					<img src="../assets/images/Chase_shappire-logo.png">
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-2 col-sm-2">
+				<div class="vertical-aligner horizontal-aligner">
+					<a>
+						<div class="vertical-aligner horizontal-aligner">
+							Remove Card
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<hr>
+	</div>
+	<div class="col-md-12 buttons">
+		<div class="col-md-offset-9 col-md-3 horizontal-aligner">
+			<a class="green-btn next-btn vertical-aligner horizontal-aligner">NEXT</a>
+		</div>
+	</div>
+</div>
+
+<script type="text/ng-template" id="/my-custom-template.html">
+        <div class="angucomplete-holder " ng-class="{'angucomplete-dropdown-visible': showDropdown}">
+          <input ng-model="searchStr"
+            ng-disabled="disableInput"
+            type="text"
+            placeholder="{{placeholder}}"
+            ng-focus="onFocusHandler()"
+            class="{{inputClass}} form-control"
+            ng-focus="resetHideResults()"
+           
+            autocapitalize="off"
+            autocorrect="off"
+            autocomplete="off"
+            ng-change="inputChangeHandler(searchStr)"/>
+          <div class="angucomplete-dropdown" ng-show="showDropdown">
+
+            <div class="angucomplete-searching" ng-show="searching" ng-bind="textSearching"></div>
+            <div class="angucomplete-searching" ng-show="!searching && (!results || results.length == 0)" ng-bind="textNoResults"></div>
+            <div class="angucomplete-row" ng-repeat="result in results" ng-mouseenter="hoverRow($index)" ng-click="selectResult(result,$event)" ng-class="{'angucomplete-selected-row': $index == currentIndex}">
+                <div ng-if="imageField" class="angucomplete-image-holder" ng-click="selectResult(result,$event)">
+                    <img ng-src="{{result.image.length>0 &&result.image ||'../assets/images/dummy_card.png'}}" class="angucomplete-image" alt="{{result.image}}" />
+                    <div ng-if="!result.image && result.image != ''" class="angucomplete-image-default"></div>
+                </div>
+                <div class="angucomplete-title" ng-if="matchClass" ng-bind-html="result.title"  ></div>
+                <div ng-if="!result.inWallet" class="addButton" title="Add Kard to Wallet" ng-click="addToWallet(result,$event)">
+                    <button type="button" class="btn btn-success">+</button>
+                </div>
+                <div ng-if="result.inWallet  && !result.primaryCard" class="addButton" title="Remove from Kard Wallet" ng-click="removeFromWallet(result,$event)">
+                    <button type="button" class="btn btn-danger">-</button>
+                </div>
+                <div class="angucomplete-title" ng-if="!matchClass" ng-click="selectResult(result,$event)">{{ result.title }}</div>
+                <div ng-if="matchClass && result.description && result.description != ''" class="angucomplete-description" ng-bind-html="result.description"></div>
+                <div ng-if="!matchClass && result.description && result.description != ''" class="angucomplete-description">{{result.description}}</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</script>

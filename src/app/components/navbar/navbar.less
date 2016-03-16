@@ -1,0 +1,352 @@
+.bg-trans {
+	
+}
+.inner-nav {
+ background: #2b2b2b;
+ margin: 0px;
+}
+// .navbar > li > p {
+//   // padding-top: 15px;
+//   // color: #9d9d9d;
+//   font-size: 14px;
+// }
+.navbar-right {
+	li {
+		float: left;
+		position: relative;
+		padding: 10px 0;
+		a {
+			color: #fff;
+			padding: 0 15px;
+			position: relative;
+			-webkit-transition: color .2s;
+			   -moz-transition: color .2s;
+			    -ms-transition: color .2s;
+			     -o-transition: color .2s;
+			        transition: color .2s;
+			&:hover, &:focus {
+				background: none;
+				text-decoration: none;
+				color: @base-color-light;
+			}
+			&.navbar-item-divider:after {
+				content: '';
+				position: absolute;
+				right:0;
+				top:0;
+				border-left: 2px solid #fff;
+				height: 100%;
+			}
+			&:hover.navbar-item-divider:after {
+				top:0;
+			}
+		}
+		p {
+			padding: 0 15px;
+			font-size: 14px;
+		}
+	}
+}
+.kard-shaded {
+	background: #888;
+	background: @kard-shaded-bg;
+	&.kard-shaded-green {
+	background: @base-color-light;
+	background: @kard-shaded-bg-green;
+	}
+}
+.kard-nav-right {
+	padding-top: 20px;
+	text-transform: uppercase;
+	p {
+		margin-bottom: 0;
+		padding: 15px 25px;
+		color: #eee;
+	}
+}
+.kard-menu {
+	padding: 0;
+	// padding-top: 30px;
+	float: left;
+	margin: 0;
+	.kard-menu-icon {
+		padding: 19px;
+		display: block;
+		cursor: pointer;
+	}
+}
+.kard-logo {
+	// padding:32px;
+	padding: 16px 0px 16px;
+}
+.kard-menu-items {
+	// background: #fff;
+	background: @kard-shaded-bg;
+	position: absolute;
+	top: 101%;
+	padding: 0;
+	z-index: 1000;
+	li {
+		overflow: auto;
+		padding:0;
+		&.active a {
+			color:darken(@white,5%);
+			background: lighten(@kard-shaded-bg, 25%);
+			&:hover {
+				color:lighten(@white,5%);
+				background: lighten(@kard-shaded-bg, 20%);
+			}
+		}
+		a {
+			text-decoration: none;
+			text-transform: uppercase;
+			text-align: left;
+			line-height: 45px;
+			display: block;
+			font-family: @font-family-secondary-medium;
+			// border-right: 2px solid darken(@base-color-light, 10%);
+			padding-right: 30px;
+			padding-left:30px;
+			background: #888;
+			background: @kard-shaded-bg;
+			// color: #333;
+			color: @white;
+			-webkit-transition: all .3s;
+			   -moz-transition: all .3s;
+			    -ms-transition: all .3s;
+			     -o-transition: all .3s;
+			        transition: all .3s;
+			&:first-child {
+				padding-top: 5px;
+			}
+			&:hover {
+				// background: lighten(@kard-shaded-bg, 25%);
+				color:#02a20c;
+				cursor: pointer;
+				text-decoration: none;
+			}	
+			img {
+				width: 40px;
+				padding: 0 15px 0 5px;
+			}
+		}
+	}
+}
+/*.navbar:before{
+	// background-color: #5DC560;
+}
+.navbar {
+	// background :  url(../assets/images/bg_pattern.png) repeat;
+	// padding-bottom: 25px;
+	// border-bottom: 1px solid white;
+	margin: 0;
+	// &.home-navbar {  //Navbar don't have border at any case.
+	// 	border: none;
+	// }
+}*/
+
+.header-nav{
+	float: right;
+	padding-top: 20px;
+	li{
+		display: inline;
+		font-family: CenturyGothic;
+		color:  #ffffff;
+		font-size: 1em;
+		font-weight: 700;
+		line-height: 1.5;
+		text-align: left;
+		transform: scaleX(1.0105);
+		&.active{
+			color:  #5eaa3e;
+		}
+	}
+	a{
+		color: #ffffff;
+	}
+	.navbar-item-divider:after {
+		content: '';
+		position: relative;
+		right:0;
+		top:0;
+		border-left: 2px solid #fff;
+		height: 100%;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+}
+
+@media (max-width: 1024px){ 
+	.swiper-pagination {
+		display: none;
+	}
+	/*.nav {
+		.container {
+			padding: 0;
+			background: @base-color-medium url("../assets/responsive/top_bar.png");
+			width: 100%;
+			.col-xs-4, .col-sm-4 {
+				padding: 0;
+				&.kard-logo {
+					padding: 25px 0;
+					img {
+						height: 22px;
+						&[src="assets/images/logo_white.png"] {
+							display: inline-block !important;
+						}
+						&[src="assets/images/logo_green.png"] {
+							display: none;
+						}
+					}
+				}
+				.kard-shaded {
+					background: none;
+				}
+			}
+		}
+	}*/
+	.off-canvas-header {
+		overflow: auto;
+	}
+	#footer {
+		// display: none;
+		.footer-container {
+			p, a {
+				line-height: 28px;
+			}
+		}
+	}
+	.kard-menu {
+		// float: right;
+		.kard-menu-icon {
+			padding: 26px;
+			padding-right: 63px;
+			img{
+				height: 18px;
+			} 
+		}
+	}
+	.kard-menu-items {
+		width: 280px;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		// right: -280px;
+		// right: 0px;
+		left: -280px;
+		background: rgba(0, 0, 0, 0.9) none repeat scroll 0% 0%;
+		z-index: 100000;
+		-webkit-transition: left .3s;
+		   -moz-transition: left .3s;
+		    -ms-transition: left .3s;
+		     -o-transition: left .3s;
+		        transition: left .3s;
+		li > a {
+			background: none;
+			font-size: 16px;
+			line-height: 55px;
+			img {
+				width: 44px;
+			}
+			&:hover {
+			  color: @white;
+			}
+		}
+	}
+	#kardMenuItems.show-menu {
+		// right: 0;
+		left: 0;
+		padding-top: 15px;
+	}
+	.show-off-can-menu {
+		-webkit-transform: translate3d(0px, 0px, 0px) !important;
+		   -moz-transform: translate3d(0px, 0px, 0px) !important;
+		    -ms-transform: translate3d(0px, 0px, 0px) !important;
+		     -o-transform: translate3d(0px, 0px, 0px) !important;
+		        transform: translate3d(0px, 0px, 0px) !important;
+	    -webkit-transform: translateY(0px) !important;
+	       -moz-transform: translateY(0px) !important;
+	        -ms-transform: translateY(0px) !important;
+	         -o-transform: translateY(0px) !important;
+	            transform: translateY(0px) !important;
+	    height: 100vh;
+	    overflow: hidden;
+	    min-height: 430px !important;
+	    /** 
+	     * iPad with portrait orientation.
+	     */
+	    @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+	        height: 1024px;
+	    }
+
+	    /** 
+	     * iPad with landscape orientation.
+	     */
+	    @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+	        height: 768px;
+	    }
+
+	    /**
+	     * iPhone 5
+	     * You can also target devices with aspect ratio.
+	     */
+	    @media screen and (device-aspect-ratio: 40/71) {
+	        height: 500px;
+	    }
+		#overlayCloseNav {
+			-webkit-transition: background .5s;
+			   -moz-transition: background .5s;
+			    -ms-transition: background .5s;
+			     -o-transition: background .5s;
+			        transition: background .5s;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+			z-index: 1000;
+			// overflow: hidden;
+			// max-height: 100vh;
+			background: fadeOut(@kard-shaded-bg, 5%);
+		}		
+	}
+	#wrap {
+		-webkit-transform: translateX(0);
+		  transform: translateX(0);
+		  
+		  -webkit-transform: translate3d(0, 0, 0);
+		  transform: translate3d(0, 0, 0);
+		  
+		  -webkit-transition: 300ms ease-out transform;
+		  transition: 300ms ease-out transform;
+		 
+		  -webkit-backface-visibility: hidden;
+		  backface-visibility: hidden;
+	}
+	.show-off-can-menu#wrap {
+	  // -webkit-transform: translateX(-280px);
+	  // transform: translateX(-280px);
+	  
+	  // -webkit-transform: translate3d(-280px, 0, 0);
+	  // transform: translate3d(-280px, 0, 0);
+	}
+	.close-nav {
+		overflow: auto;
+		height: 50px;
+		padding-top: 15px !important;
+		img {
+			width: 35px !important;
+			height: auto;
+			float: right;
+		}
+	}
+}
+@media (max-width: 768px){ 
+	.kard-menu .kard-menu-icon {
+		padding-right: 43px;
+	}
+}
+.navbar-static-top{
+	background: #2b2b2b;
+}

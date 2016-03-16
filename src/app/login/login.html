@@ -1,0 +1,66 @@
+<div class="form-container  col-sm-12">
+	<section class="kard-form-wrapper signup-form-wrapper">	
+		<!-- <section class="intro text-center"> -->
+		<div class="text-center">
+				<h4>Sign In</h4>
+		</div>
+		<div class="kard-form-item kard-form-item-text row sign-via" ng-hide="completeOne">
+		    <div class="col-sm-offset-3 col-md-offset-3 col-sm-6 col-md-6" >
+				<img src="../assets/images/facebookbutton.png" class="col-sm-6 col-xs-6 col-md-6 img-btn" ng-click="loginFB(); emailFocused = true">
+				<google-plus-signin clientid="637442507989-rst3dliijlat2n7vf0jlvl6krmpkv58k.apps.googleusercontent.com	" ng-click="signinGoogle(); emailFocused = true">
+					<img src="../assets/images/google_button.png" class="col-sm-6 col-xs-6 col-md-6 img-btn g-signin2" >
+				</google-plus-signin>
+			</div>
+		</div>
+		<hr>
+		<div class="kard-form-item kard-form-heading">
+			<p class="text-center">
+				Sign in with your credentials below
+			</p>
+		</div>
+		<form role="form" name="loginForm" novalidate>
+			<div class="kard-form-item" ng-hide="completeOne">
+				<div class="form-part-wrapper">
+					<div class="form-group">
+						<input ng-focus="emailFocused = true; messageOne = ''; validMail = true" ng-blur="emailFocused = false" class="form-control mail" type="email" id="email" validate-email
+							 ng-model="login.email" focus-if="!smallDevice"  name="loginemail" autocomplete="off" placeholder="Enter email address" required />
+					</div>
+					<div class = "kard-form-error" ng-show="loginForm.email.$touched && !emailFocused">
+						<p ng-show="loginForm.email.$error.required" class="help-block">Email is required.</p>
+						<p ng-show="loginForm.email.$invalid && !loginForm.email.$error.required" class="help-block">Please enter a valid email</p>
+					</div>
+					<div class="form-group">
+						<div class="show-hide-pwd">
+			 			    <input ng-focus="pwdFocused = true" ng-blur="pwdFocused = false" type="password" class="form-control password"  id="password"
+							 ng-model="login.password" name="password" oncopy="return false"  placeholder="Enter password" required/>
+						</div>
+					</div>
+					<div class = "kard-form-error" ng-show="loginForm.password.$touched && !pwdFocused && !loginForm.password.$pristine">
+						<p ng-show="loginForm.password.$error.required" class="help-block">Password is Required.</p>
+						<!-- <p ng-show="loginForm.password.$error.minlength" class="help-block">Password should be minimum 8 characters long.</p> -->
+					</div>
+
+					<p class="text-error" ng-show = "loginError">{{message}}</p>
+
+					<div class="form-group vertical-aligner">
+						<div class="col-md-6 col-sm-6 col-xs-6 start-left">
+						<button type="submit" class="kard-btn login_btn btn-block" ng-disabled="signupForm.$invalid || apiWait"  ng-click="loginFunc(login);">Sign In&nbsp;&nbsp;&nbsp;&gt;</button>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<p class="left-align">Forgot Password</p>
+						</div>
+					</div>
+					<div class="row col-sm-12 col-xs-12 col-md-12">
+					Don't have an account?<a href="">Sign up today</a>
+					</div>
+				</div>
+			</div>
+		</form>
+	</section>
+</div>
+
+<script>
+    function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+</script>

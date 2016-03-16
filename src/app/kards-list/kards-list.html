@@ -1,0 +1,75 @@
+<div id="wrap">
+<div id="main">
+<div class="hedderContent text-center">
+<div ng-include="'app/components/navbar/navbar.html'"></div>
+<h3 class="text-center">Tell us what cards you own</h3>
+<h6 class="capitalized show-subheading"><a href="#/kard-cat-select" class="go-back-btn">KARD List </a>- {{kardType}}</h6>
+</div>
+<div class="mainContainer"> 
+  <div class="container">
+<!-- <hovercard hover-tmpl-url='app/kards-list/n.html'> Hover over here </hovercard>. -->
+  <!-- <a class="kard-btn pull-left go-back-btn" href= "#/kard-cat-select">Back</a> -->
+  <!-- <a class="glyphicon glyphicon-menu-left pull-left go-back-btn" href= "#/kard-cat-select" alt = "Back" data-toggle="tooltip" data-placement="left" title="Back"></a> -->
+  <div class="kard-search-input">
+    <input ng-model="cardName" type="text" class= "form-control" placeholder="Search for your cards">
+  </div>
+      <div class="card-list-container-scroll" scrollbar="{autoUpdate: true}" ng-class = "{'waiting':apiWait}">
+        
+        <ul class="kard-list-container-scroll">
+<!-- 
+          <div ng-show="(cards | filter:{card_name: cardName}).length == 0" class="text-center">
+            <p class="text-light">No cards found!</p>
+          </div> -->
+          <li ng-repeat="card in cards | startsWithLetter:cardName" class="kard-wallet-item" >
+            <div class="media">
+              <h4 class="media-heading" ng-click = "confirmAddToWallet({{card}});">
+              <a href="">{{card.card_name}}</a></h4>
+              <div class="media-left media-middle">
+                <!-- <img class="media-object" ng-src="{{card.card_image}}"> -->
+                <img  ng-click = "showDetails({{card}});" class="media-object img-responsive" ng-src="{{card.card_image.length > 0 && card.card_image || '../assets/images/dummy_card.png'}}" alt="{{card.card_name}}">
+              </div>
+              <div class="media-body">
+                <ul class="feature-sub card-feature-list">
+                    <li ng-repeat= "feature in card.card_features">
+                    <!--  &#36;&nbsp;&nbsp;{{feature}} -->
+                    &middot;&nbsp;&nbsp;{{feature}}
+                    </li>
+                </ul>
+                <a ng-if="!card.in_wallet" class="kard-btn kard-btn-xs" ng-click = "confirmAddToWallet({{card}}); ">Add to KARD wallet</a>
+                <a ng-if="card.in_wallet && !card.primary_card" class="kard-btn kard-btn-xs kard-btn-assertive" ng-click = "removeFromWalletConfirm(card.id);">Remove from KARD wallet</a>
+                <a ng-if=" card.primary_card" class="kard-badge" data-toggle="tooltip" title="Primary card can't be removed!">Primary card</a>
+    <!-- 
+                <a ng-if="!primary_card_check" class="kard-btn kard-btn-xs" ng-disabled="apiWait" ng-click = "confirmAddToWallet({{card}}); ">Add to KARD wallet</a>
+                <a ng-if="primary_card_check" class="kard-btn kard-btn-xs" ng-disabled="apiWait" ng-click = "confirmAddToWallet({{card}});">Set as my primary card</a>
+    -->
+              </div>
+            </div>
+          </li>
+          <!-- <li ng-repeat="card in cards" ng-click='LoadDetail({{card}})' >
+            <a href="#/detail/{{card.position}}">
+              <hovercard hover-tmpl-url="kards-list.html">Hover over here</hovercard>.
+              <div class="thumbnail">
+                <img class="pull-left" ng-src="{{card.card_image}}" alt="{{card.card_image_alt}}">
+                <div class="caption pull-left">
+                  <h3>{{card.card_name}}</h3>
+                  <p>{{card.card_image_title}}</p>
+                  <a class="btn btn-primary btn-small" ng-click = "addToWallet({{card.id}})">Add to my KARD Wallet</a>
+                </div>
+              </div>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+</div>
+</div>
+</div>
+</div>
+<!-- <div ng-include="'app/components/footer/footer.html'" >
+</div> -->
+<!-- TODO: Make a better way to ng-dialog-templates -->
+<script type="text/ng-template" id="successTemplate">
+    <div class="text-center">
+      <p>{{message}}</p>
+      <p><b>Name: </b> {{name_of_card_added}}</p>
+    </div>
+</script>

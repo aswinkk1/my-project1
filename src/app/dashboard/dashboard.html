@@ -1,0 +1,94 @@
+<div id="wrap" class="dashboard">
+<div id="main">
+	<div ng-include="'app/components/navbar/navbar.html'"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-4 col-sm-4 xs-center">
+					<h2>Dashboard</h2>
+			</div>
+			<div class="slick-items col-xs-12 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 horizontal-aligner vertical-aligner">
+				<div class="col-xs-3 col-md-4 col-sm-4"><img class="cards" src="../assets/images/card_01.gif"></div>
+				<div class="col-xs-3 col-md-4 col-sm-4"><img class="cards" src="../assets/images/card_02.gif"></div>
+				<div class="col-xs-3 col-md-4 col-sm-4"><img class="cards" src="../assets/images/card_03.gif"></div>
+				<div class="col-xs-3 col-md-4 col-sm-4"><img class="cards" src="../assets/images/card_01.gif"></div>
+				<div class="col-xs-3 col-md-4 col-sm-4"><img class="cards" src="../assets/images/card_02.gif"></div>
+				<div class="col-xs-3 col-md-4 col-sm-4"><a class="cards add-card horizontal-aligner vertical-aligner">+</a></div>
+			</div>
+		</div>
+		<div class="row new-section">
+			<div class="col-xs-12 col-md-7 col-sm-12 col-lg-7">
+				<tabset>
+      				<tab ui-sref="dashboard.active" >
+				        <tab-heading>
+				          <a ui-sref-active="is-active">Activities</a>
+				        </tab-heading>
+			      	</tab>
+			        <tab ui-sref="dashboard.trending" >
+				        <tab-heading>
+				          <a ui-sref-active="is-active">Trending</a>
+				        </tab-heading>
+			        </tab>
+			    </tabset>
+			    <div class="row dashboard-activity">
+			        <ui-view></ui-view>
+			    </div>
+				<div class="row buttons vertical-aligner horizontal-aligner">
+						<button class="dashboard-button col-sm-4 col-md-4">Load More</button>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-5 col-sm-12 col-lg-5">
+				<div class="row">
+					<h3>Kard Calculator</h3>
+				</div>
+				<div class="row">
+					<input class="col-xs-12 col-md-12 col-sm-12 dashboard-input form-control" placeholder="Search your favorite places">
+				</div>
+				<div class="row">
+					<hr>
+				</div>
+				<div class="row dashboard-offers">
+					<div class="row vertical-aligner">
+						<img src="../assets/images/card_01.gif" class="col-md-3 col-sm-3">
+						<span>Shop at <span class="retailer">J Crew</span> and get an extra 3x your points today!</span>
+					</div>
+					<hr>
+					<div class="row buttons vertical-aligner horizontal-aligner">
+					    	<button class="dashboard-button col-sm-6 col-md-6">Find More Rewards</button>
+				    </div>
+				</div>
+
+			</div>
+
+		</div>
+			
+	</div>
+</div>
+
+</div>
+
+<div class="bottom navbar-fixed-bottom">
+<div class="container">
+	<div class="row">	
+		<div class="install-wrapper col-md-6 col-md-offset-1">
+			<div class="vertical-aligner horizontal-aligner">
+				<h3>Rewards made simple with the Kard extension</h3>
+			</div>
+		</div>
+		<div class="install-wrapper col-md-3">
+	            <a class="row install-button horizontal-aligner vertical-aligner">INSTALL EXTENSION</a>
+	            <a class="hero-link"><h5>What is an extension?</h5></a>
+		</div>
+	</div>
+</div>
+	
+</div>
+
+<div ng-include="'app/components/footer/footer.html'"></div>
+<script type="text/javascript">
+	$('.slick-items').slick({
+	  infinite: false,
+	  slidesToShow: 3,
+	  slidesToScroll: 3
+	});
+</script>

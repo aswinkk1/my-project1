@@ -1,0 +1,75 @@
+<div id="wrap">
+<div id="main">
+<div class="hedderContent text-center" ng-class="{'home-calculator': (currentState=='home')}">
+    <div ng-include="'app/components/navbar/navbar.html'" ng-hide="(currentState=='home')"></div>
+    <h3 class=" text-center">KARD CALCULATOR</h3>
+    <h6>Enter in wherever you're thinking of shopping to see which card to use to maximize your rewards</h6>
+    <h6></h6>
+</div>
+<div class="mainContainer"> 
+  <div class="container kard-calculator-container">
+    <div class="input-group kard-search">
+    <!--   <angucomplete-alt id="calculateCard"
+        placeholder="Where are you shopping ? (Ex: JCrew, Starbucks, United Airlines etc)"
+        pause="400"
+        local-data="predictSites"
+        selected-object="selectedSite"
+        search-fields="name"
+        datafield = "data"
+        title-field="name"
+        minlength="1"
+        ng-enter="enterKeyPress(selectedSite)"
+        input-class="form-control form-control-small"/>
+      </angucomplete-alt> -->
+
+      <angucomplete-alt id="calculateCard"
+                  placeholder="{{calculatorPlaceholder}}"
+                  pause="400"
+                  selected-object="selectedSite"
+                  search-fields="merchant_name"
+                  title-field="merchant_name"
+                  minlength="1"
+                  input-changed = "inputChange"
+                  remote-api-handler= "AutoFillWebsite"
+                  template-url="app/components/templates/kard-calculator-angucomplete.html"
+                  input-class="form-control form-control-small"/>
+
+    <span class="input-group-btn" ng-click = "enterKeyPress(selectedSite)">
+        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+    </span>
+    </div><!-- /input-group -->
+     <span class="fornav"><i class="icon-search" ></i></span>
+      <div class="scrollme card-feature-container-scroll"  scrollbar="{autoUpdate: true}" ng-class = "{'waiting':apiWait}">
+        <ul class="kard-feature-container-scroll" >
+          <div ng-hide="serverResponse" style="padding-top: 20px;text-align: center;">
+            <p class="text-light">{{message}}</p>
+          </div>
+          <li class="kard-wallet-item" ng-repeat="card in cards" ng-show = "serverResponse">
+            <div class="media">
+              <h4 class="media-heading" ng-click = "showDetails({{card}});">
+                <a href="">{{card.card_name}}</a>
+              </h4>
+              <div class="media-left media-middle">
+                <!-- <img class="media-object" ng-src="{{card.card_image}}"> -->
+                <img ng-click = "showDetails({{card}});" class="media-object img-responsive" ng-src="{{card.card_image.length > 0 && card.card_image || '../assets/images/dummy_card.png'}}" alt="{{card.card_name}}">
+              </div>
+              <div class="media-body">
+                <ul class="feature-sub">
+                    <!-- <li ng-repeat= "feature in card.card_features">
+                    &middot;&nbsp;&nbsp;{{feature}}
+                    </li> -->
+                    <!-- <li ng-if="card.bonus_rewards" class="bonus-offer-badge">BONUS OFFER</li> -->
+                    <li class="bonus-offer-badge">{{card.card_text}}</li>
+                    <li ng-if="card.bonus_rewards"><a href="{{card.bonus_rewards_link}}">{{card.bonus_rewards_link}}</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+</div> 
+</div><!--Maincontainer-->
+</div>
+</div>
+<!-- <div ng-include="'app/components/footer/footer.html'" >
+</div> -->

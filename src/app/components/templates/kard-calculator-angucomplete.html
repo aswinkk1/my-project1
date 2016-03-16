@@ -1,0 +1,23 @@
+ <div class="angucomplete-holder " ng-class="{'angucomplete-dropdown-visible': showDropdown}">
+      <input ng-model="searchStr"
+        ng-disabled="disableInput"
+        type="text"
+        placeholder="{{placeholder}}"
+        ng-focus="onFocusHandler()"
+        class="{{inputClass}}"
+        ng-focus="resetHideResults()"
+       
+        autocapitalize="off"
+        autocorrect="off"
+        autocomplete="off"
+        ng-change="inputChangeHandler(searchStr)"/>
+      <div class="angucomplete-dropdown angucomplete-dropdown-calculator" ng-show="showDropdown">
+
+        <div class="angucomplete-searching" ng-show="searching" ng-bind="textSearching"></div>
+        <div class="angucomplete-searching" ng-show="!searching && (!results || results.length == 0)" ng-bind="textNoResults"></div>
+        <div class="angucomplete-row" ng-repeat="result in results" ng-mouseenter="hoverRow($index)" ng-click="selectResult(result,$event)" ng-class="{'angucomplete-selected-row': $index == currentIndex}">
+            <div class="angucomplete-title" ng-if="matchClass" ng-bind-html="result.title"  ></div>
+            <div class="angucomplete-title" ng-if="!matchClass" ng-click="selectResult(result,$event)">{{ result.title }}</div>
+        </div>
+    </div>
+</div>

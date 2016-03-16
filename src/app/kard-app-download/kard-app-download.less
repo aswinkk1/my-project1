@@ -1,0 +1,125 @@
+.download-text{
+	margin: 20% auto;
+
+
+	p{
+
+  		font-family: 'Gotham A','Gotham B',sans-serif;
+  		font-size: 20px;
+  		font-weight: bold;
+	}
+}
+.download-app-container {
+	display: table;
+	padding-top: 5%;
+	position: absolute;
+	bottom: 40px;
+	left: 7%;
+	left: calc(~"50% - 485px");;
+	// z-index: -1;
+	@media only screen and (min-width : 1200px) { 
+	    left: calc(~"50% - 585px");
+	}
+	@media only screen and (min-width : 1900px) { 
+		position: static;
+	}
+	.download-app-image {
+		width: 39%;
+		display: table-cell;
+		@media only screen and (min-width : 1024px) { 
+		    width: 38%;
+		}
+		img {
+			width: 100%;
+		}
+	}
+	.download-app-content {
+		display: table-cell;
+		width: 50%;
+		vertical-align: middle;
+		article{
+			background: @white;
+			padding: 50px;
+			padding-right: 70px;
+			h2, h3 {
+				color: @base-color-light;				
+				text-transform: uppercase;
+				margin-bottom: 15px;
+				font-weight: bold;
+				font-size: 22px;
+			}
+			h3 {
+				font-size: 18px;
+				margin-top: 10px;
+			}
+			p {
+				font-family: @font-family-secondary-medium;
+				font-size: 14px;
+				color: @dark;
+				margin-bottom: 5px;
+				
+			}
+			.kard-form-item {
+				padding: 25px 40% 0 0;
+				.kard-btn {
+					padding: 15px 50px;
+					color: @base-color-dark;
+					background: @base-color-light;
+				}
+				.help-block {
+					color: #a94442;
+					margin-left: 25px;
+				}
+				.form-group {
+					//margin-top: 15px;
+					//margin-bottom: 15px;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 1200px){ 
+	.download-app-container {
+	    display: block;
+	    padding: 0 0 0 0;
+	    width: 100%;
+	    margin-top: 1px;
+	    position: static;
+	    background: #fff;
+	    .download-app-image {
+	        width: 100%;
+	        display: block;
+	    }
+	    .download-app-content {
+	        display: block;
+	        width: 60%;
+	        text-align: center;
+	        margin: auto;
+	        article.kard-form-wrapper {
+	        	box-shadow: none;
+	        }
+	        article .kard-form-item {
+	        	padding: 25px 10%;
+	        	.help-block {
+	        		margin-left: 0;
+	        	}
+	        	.kard-btn {
+	        		margin-top: 20px;
+        		}
+	        }
+	    }
+
+    }
+}
+@media (max-width: 767px){ 
+	.download-app-container {
+	    .download-app-content {
+	        width: 100%;
+	    }
+    }
+}
+@media (max-width: 414px){ 
+	.download-app-container .download-app-content article {
+        padding: 20px;
+    }
+}

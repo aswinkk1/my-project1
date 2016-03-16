@@ -1,0 +1,118 @@
+<div id="wrap">
+<div id="main">
+<div class="hedderContent text-center" ng-if = "!primary_card_check">
+      <div ng-include="'app/components/navbar/navbar.html'"></div>
+      <h3 class="text-center">Tell us what cards you own</h3>
+      <h6 class="show-subheading"> Select all the cards that you own and KARD will tell you which credit cards</h6>
+      <h6 class="show-subheading">  gives you the most points for each purchase.</h6>
+</div>
+<div class="hedderContent text-center" ng-if = "primary_card_check">
+      <div ng-include="'app/components/navbar/navbar.html'"></div>
+      <h3 class="text-center">Choose your primary card</h3>
+</div>
+<div class="mainContainer"> 
+    <div class="container card-category-container">
+        <section class="card-category">
+          <!-- <h5 >Search for your cards</h5> -->
+            <angucomplete-alt id="ex1"
+                  placeholder="Search for your cards"
+                  pause="1000"
+                  selected-object="selectedCard"
+                  search-fields="card_name"
+                  title-field="card_name"
+                  image-field="card_image"
+                  in-wallet="in_wallet"
+                  primary-card="primary_card"
+                  minlength="1"
+                  clear-selected="true"
+                  input-changed = "inputChange"
+                  remote-api-handler= "searchAutoComplete"
+                  template-url="/my-custom-template.html"
+                  input-class="form-control form-control-small"/>
+            </angucomplete-alt>
+
+            <h6 class="low-margin-bottom">Or, select from our comprehensive list of cards.</h6>
+
+        </section>
+        <ul class="card-categories-image"  ng-class = "{'waiting':apiWait}">
+            <li ng-repeat="card in cardCategory" class="card-category-item" id="{{card.id}}">
+                <a href="#/kards-list/{{card.id}}">
+                   <!--  <img class="pull-left" ng-src="{{card.card_image_URL}}" alt="{{card.name}}"/> -->
+                    <!-- <div class="caption pull-left">
+                        <h3>{{card.card_name}}</h3>
+                        <p>Kard Sample Card</p>
+                    </div> -->
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+<!-- <div ng-include="'app/components/footer/footer.html'" >
+</div> -->
+<!-- <h4 class="media-heading">{{data.card_name}}</h4>-->
+<script type="text/ng-template" id="selectTemplate">
+    <div class="text-center">
+            <div class="media">
+                   <div class="media-left media-middle">
+                      <img class="media-object" ng-src="{{data.card_image}}" alt="{{data.card_name}}">
+                  </div>
+                  <div class="media-body">
+                      <h2>{{data.card_name}}</h2>
+                      <p>Rating: {{data.card_rating}}</p>
+                      <p>{{data.credit_needed}}</p>
+                      <p>Annual Fee: {{data.annual_fee}}</p>
+                      <p>{{data.card_features}}</p>
+                      <a class="kard-btn" ng-click="addToWallet({{data.id}})">Add to my KARD wallet</a>
+                  </div>
+              </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="successTemplate">
+    <div class="text-center">
+      <p>{{message}}</p>
+      <p><b>Name: </b> {{name_of_card_added}}</p>
+    </div>
+</script>
+
+<!-- // ng-blur="hideResults($event)"   ng-enter="enterKeyPress(selectedCard)"-->
+    <script type="text/ng-template" id="/my-custom-template.html">
+        <div class="angucomplete-holder " ng-class="{'angucomplete-dropdown-visible': showDropdown}">
+          <input ng-model="searchStr"
+            ng-disabled="disableInput"
+            type="text"
+            placeholder="{{placeholder}}"
+            ng-focus="onFocusHandler()"
+            class="{{inputClass}}"
+            ng-focus="resetHideResults()"
+           
+            autocapitalize="off"
+            autocorrect="off"
+            autocomplete="off"
+            ng-change="inputChangeHandler(searchStr)"/>
+          <div class="angucomplete-dropdown" ng-show="showDropdown">
+
+            <div class="angucomplete-searching" ng-show="searching" ng-bind="textSearching"></div>
+            <div class="angucomplete-searching" ng-show="!searching && (!results || results.length == 0)" ng-bind="textNoResults"></div>
+            <div class="angucomplete-row" ng-repeat="result in results" ng-mouseenter="hoverRow($index)" ng-click="selectResult(result,$event)" ng-class="{'angucomplete-selected-row': $index == currentIndex}">
+                <div ng-if="imageField" class="angucomplete-image-holder" ng-click="selectResult(result,$event)">
+                    <img ng-src="{{result.image.length>0 &&result.image ||'../assets/images/dummy_card.png'}}" class="angucomplete-image" alt="{{result.image}}" />
+                    <div ng-if="!result.image && result.image != ''" class="angucomplete-image-default"></div>
+                </div>
+                <div class="angucomplete-title" ng-if="matchClass" ng-bind-html="result.title"  ></div>
+                <div ng-if="!result.inWallet" class="addButton" title="Add Kard to Wallet" ng-click="addToWallet(result,$event)">
+                    <button type="button" class="btn btn-success">+</button>
+                </div>
+                <div ng-if="result.inWallet  && !result.primaryCard" class="addButton" title="Remove from Kard Wallet" ng-click="removeFromWallet(result,$event)">
+                    <button type="button" class="btn btn-danger">-</button>
+                </div>
+                <div class="angucomplete-title" ng-if="!matchClass" ng-click="selectResult(result,$event)">{{ result.title }}</div>
+                <div ng-if="matchClass && result.description && result.description != ''" class="angucomplete-description" ng-bind-html="result.description"></div>
+                <div ng-if="!matchClass && result.description && result.description != ''" class="angucomplete-description">{{result.description}}</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</script>

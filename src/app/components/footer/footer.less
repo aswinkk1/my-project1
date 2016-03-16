@@ -1,0 +1,92 @@
+#wrap {min-height: 100vh;}
+
+#main {
+  overflow:auto;
+  padding-bottom: 10px; /* must be same height as the footer */
+  min-height: 80vh;
+  -ms-overflow-x: hidden;
+      overflow-x: hidden;
+  @media only screen and (max-width: 767px) { 
+    padding-bottom: 20px;
+  }
+  @media only screen and (min-width: 1200px) { 
+    padding-bottom: 40px;
+  }  
+}
+#footer {position: relative; /* negative value of footer height */
+  min-height: 40px;
+  z-index: -1;
+  clear:both;} 
+
+// /*Opera Fix*/
+// body:before {
+//   content:"";
+//   height:100%;
+//   float:left;
+//   width:0;
+//   margin-top:-32767px;/
+// }
+
+@kard-footer-item-height: 26px;
+footer {
+  color: #dfe0e1;
+  background: #333;
+  .footer-container {
+    margin: auto;
+    padding: 5px;
+    p, a, ul,li{
+      font-family: Helvetica;
+      color:  rgba(255, 255, 255, 0.7);
+      font-size: 0.875em;/* Approximation due to font substitution */
+      font-weight: 400;
+      line-height: 2.214;/* Approximation due to font substitution */
+      text-align: left;
+      transform: scaleX(1.0006);/* width and height properties ommitted due to transform */
+    }
+    p, a {
+      line-height: 30px;
+      margin: 0px;
+      padding: 0px;
+    }
+    li {
+      line-height: @kard-footer-item-height;
+      height: @kard-footer-item-height;
+      margin-right: 14px;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+footer {
+  color: #dfe0e1;
+  background: #333;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.kard-social-wrapper {
+  float: right;
+  li {
+    display: inline-block;
+  }
+  .kard-social {
+    background: url('../assets/images/social_media.png');
+    display: inline-block;
+    width:25px;
+    height: @kard-footer-item-height;
+    &.kard-social-fb {
+      background-position: 0 0; 
+    }
+    &.kard-social-tw {
+      background-position:-26px 0;
+    }
+    &.kard-social-gp {
+      background-position:-52px 0;
+    }
+  }  
+}
+
+@media (max-width: 1024px){ 
+  footer .footer-container {  }
+}

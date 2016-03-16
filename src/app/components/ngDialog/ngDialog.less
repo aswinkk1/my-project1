@@ -1,0 +1,113 @@
+//Custom ngDialog
+.ngdialog-overlay {
+  background: rgba(223, 223, 223, 0.61);
+}
+.ngdialog{
+	&.ngdialog-theme-default {
+		padding-top: calc(~"50vh - 150px");
+		.ngdialog-content {
+			background: @white;
+			border-radius:5px;
+			//border-top: 4px solid @base-color-medium;
+			//padding: 50px;
+			-webkit-box-shadow: 0 0 10px 1px #bbb ;
+			        box-shadow: 0 0 10px 1px #bbb ;
+			font-family: @font-family-secondary-medium, sans-serif;
+			color: @dark;
+			font-size: 16px;
+			width: 600px;
+			overflow: auto;
+			-webkit-transform: translate3d(0,0,0);
+		}
+	}
+	.media {
+		padding: 0;
+		margin: 0;
+		.media-body {
+			border-bottom: none;
+			padding-bottom: 0;
+			padding-top: 8px;
+			vertical-align: top;	
+			font-size: 15px;
+		}
+		img {
+			margin: 10px 0 10px;
+			max-width: 172px;
+			// width: 100%;
+		}
+		.kard-btn-xs {
+			min-width: 172px;
+		}
+	}
+}
+.ngdialog.ngdialog-theme-default.half-width{
+	padding-top: 150px;
+	padding-top: calc(~"40vh - 150px");
+	padding-bottom: 60px;
+	.ngdialog-content {
+		width: 70%;
+		padding: 30px 20px;
+		p, h2, a {
+			text-align: left;
+		}
+		h2 {
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+		p {
+			font-size: 14px;
+			margin-bottom: 5px;
+		}
+	}
+}
+//redundant ngdialog and card-detail-dialog
+.card-detail-dialog {
+	.media-middle {
+		vertical-align: top;
+		padding-right: 30px;
+	}
+	.card-feature-table {
+		margin-top: 15px;
+		padding: 0;
+		table {
+			font-size: 14px;
+			th {
+				text-align: center;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) { 
+	.ngdialog.ngdialog-theme-default.half-width{
+		padding-top: 74px;
+		.ngdialog-content {
+			width: 95%;
+			h2 {
+				font-size: 16px;
+			}
+			.card-detail-dialog {
+				.media-middle {
+					display: block;
+					text-align: left;
+				}		
+				.card-feature-table table{
+					font-size: 12px;
+				}		
+			}
+		}
+	}
+	.ngdialog.ngdialog-theme-default .ngdialog-content {
+		width: 95%;
+	}
+}
+@media only screen and (max-width: 414px) { 
+	.ngdialog.ngdialog-theme-default{
+		padding-top: 180px;
+		padding-top: 35vh;
+		.ngdialog-content {
+			padding: 35px 20px;
+			font-size: 14px;
+		}
+	}
+} 

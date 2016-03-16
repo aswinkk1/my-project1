@@ -1,0 +1,58 @@
+<nav class="navbar inner-navbar navbar-static-top" ng-controller="NavbarController" ng-class="{'bg-trans':(currentState=='signup'||currentState=='login'||currentState=='home'||currentState=='forgot-password')}">
+  <div class="container">
+    <div id="overlayCloseNav" ng-click = "showMenuCheck();"></div>
+    <div class="col-xs-4 col-sm-4 col-md-4 kard-logo">
+      <a href="/#/home">
+        <img ng-src="assets/images/kard_extention_logo.png" alt="KARD">
+      </a>
+    </div>
+    <!--<div class="hidden-xs hidden-sm hidden-md col-md-2  col-md-pull-0 text-center kard-nav-right" ng-show = "currentState=='home'">
+      <ul class="nav navbar-right">
+        <li ng-show = "loggedIn" class="kard-shaded"><p>Welcome {{userName}}</p></li>
+        <li class="kard-shaded" ng-class="{'active':currentState=='login'}" ng-hide = "loggedIn"><a ng-click="logIn()" class="navbar-item-divider">Login</a></li>
+        <li class="kard-shaded" ng-class="{'active':currentState=='signup'}" ng-hide = "loggedIn"><a ng-click="signUp()">Signup</a></li>
+      </ul>
+    </div>-->
+    <ul id = "kardMenuItems" class="header-nav">
+      <!-- <li ng-show = "loggedIn" class="kard-shaded visible-xs visible-sm"><p>Welcome {{userName}}</p></li> -->
+      <!-- <li>
+        <a class="close-nav visible-xs visible-sm" ng-click="showMenuCheck();">
+          <img ng-src="assets/responsive/close.png" alt="Close" title="Close"/>
+        </a>
+      </li> -->
+      <li ng-class="{'active':currentState=='dashboard'}">
+        <a ng-href="#/dashboard/" class="navbar-item-divider">
+          Dashboard
+        </a>
+      </li>
+      <li ng-class="{'active':currentState=='kard-wallet'}">
+        <a ng-href="#/kard-wallet" class="navbar-item-divider">
+          Kard Wallet
+        </a>
+      </li>
+      <li ng-class="{'active':currentState=='kard-calculator'}">
+        <a ng-href="#/kard-calculator" class="navbar-item-divider">
+          Kard Calculator
+        </a>
+      </li>
+      <li ng-class="{'active':currentState=='kard-app-download'}">
+        <a ng-href="#/kard-app-download" class="navbar-item-divider">
+          Install Kard
+        </a>
+      </li>
+      <li ng-class="{'active':currentState=='profile.my-profile'}">
+          <a ng-href="#/profile/my-profile" >
+            {{userName}}
+            <img src="assets/images/down_arrow.png">
+          </a>
+      </li>
+      <!--<li ng-class="{'active':currentState=='logout'}" ng-show = "loggedIn" class="navbar-item-divider">
+        <a ng-href="#/logout">
+          Logout
+        </a>
+      </li>-->
+    </ul>
+    
+    
+  </div>
+</nav>

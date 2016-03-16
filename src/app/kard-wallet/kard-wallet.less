@@ -1,0 +1,62 @@
+.media {
+	padding: 10px 5px;
+	// border: 1px solid #ddd;
+	margin-bottom: 20px;
+	min-height: 131px;
+}
+.media-body{
+	padding-bottom:  20px;
+	border-bottom: 1px solid #d2d8d8 ;
+	vertical-align: middle;
+}
+.media-right, .media-body {
+  	display: table-cell;
+  	vertical-align: middle;
+}
+
+.add-card{
+	.card-row{
+		text-align: center;
+		@media(min-width: 768px){
+			height: 200px;
+		}
+		@media(max-width: 768px){
+			div{
+				margin-bottom: 20px;
+			}
+		}
+		div{
+			height: 100%;
+		}
+		a{
+			width: 110px;
+			height: 45px;
+			background-color:  #c4c5c4;
+			font-family: 'Lato';
+			color: rgba(255, 255, 255, 1);
+			font-size: 1em;
+			font-weight: 400;
+			line-height: 1.938;
+			text-align: center;
+		}
+		.reward-container{
+			height: 69px;
+			width: 82px;
+			background-color:  #f1f1f1;
+			h2{
+				margin-top: calc(~"57px - 1.4em");
+				margin-bottom: 12px;
+			}
+			h5{
+				color:  #999797;
+				font-size: 0.5em;
+				line-height: 1;
+			}
+		}
+		h5{
+			&.head{
+				font-weight: 700;
+			}
+		}
+	}
+}

@@ -1,0 +1,49 @@
+<div id="wrap">
+<div id="main">
+<div ng-include="'app/components/navbar/navbar.html'"></div>
+<div class="container download-app-container">
+  <figure class="download-app-image">
+    <img src="../assets/images/get_app_phone.png" alt="phone" class="img-responsive hidden-xs hidden-sm hidden-md">
+    <img src="../assets/responsive/get_the_app.png" alt="phone" class="img-responsive visible-xs visible-sm visible-md">
+       <!-- <img src="../assets/images/full_phone.png" alt="phone" class="img-responsive"> -->
+  </figure>
+    <div class="download-app-content">
+      <article class="kard-form-wrapper">
+        <h2>Get the app</h2>
+        <p>Just imagine, all the power of KARD while you're on the go!</p>
+        <p>Well have no fear, the KARD app is coming soon!</p>
+        <h3>Get notified</h3>
+        <p>Enter your email below and we will let you know when the KARD app is launching, and may even send you a BETA invite!</p>
+        <form role="form" name="notifyUserForm" novalidate class="kard-form-item">
+          <div class="form-group  floating-placeholder" ng-class="{ 'has-error' : notifyUserForm.email.$invalid  && !notifyUserForm.email.$pristine,'floating-placeholder-float': notifyUserForm.email.$dirty && !notifyUserForm.email.$error.required }" >
+          <label for="email">Email</label>
+            <input type="email"
+               ng-model="notifyUser.email"  name="email" id="email"  required validate-email/>
+            <div class = "kard-form-error" ng-show="notifyUserForm.email.$touched">
+              <p ng-show="notifyUserForm.email.$invalid" class="help-block">Please enter valid email</p>
+            </div>
+          </div>
+          <p class="text-error" ng-show="errorMessage">{{errorMessage}}</p>
+          <button type="submit" class="kard-btn btn-block" ng-disabled="notifyUserForm.$invalid || apiWait"  ng-click="notifyUser(notifyUser); apiWait = true;">SUBMIT</button>
+        </form>
+      </article>
+      <!-- <article class="column kard-form-wrapper">
+        <h2>Get the app</h2>
+        <p>Just imagine, all the power of KARD while you're on the go !</p>
+        <p>Well have no fear, the KARD app is coming soon!</p>
+        <br>
+        <div class="row">
+          <div class="col-md-6 column">
+              <img  ng-src="assets/images/App-Banner.png" alt="appstore" width="90%">
+          </div>
+          <div class="col-md-6 column">
+              <img ng-src="assets/images/google-play.png" alt="play store" width="50%" style='padding-top:4px;'>
+          </div>
+        </div>
+      </article> -->
+    </div>
+</div>
+</div>
+</div>
+<div ng-include="'app/components/footer/footer.html'" class="hidden-xs hidden-sm hidden-md">
+</div>

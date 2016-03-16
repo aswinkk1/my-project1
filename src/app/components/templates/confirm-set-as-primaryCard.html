@@ -1,0 +1,8 @@
+<div class="primary-card-pop text-center">
+	<p ng-if="setPrimaryCard">Are you sure to change your primary card?</p>
+	<p ng-if="!setPrimaryCard">Are you sure to add this as your primary card?</p>
+	<button ng-disabled="apiWait" class="kard-btn  kard-btn-sm" ng-click = "setAsPrimaryCard(ngDialogData); apiWait = true;">Yes</button>
+	<!-- <button class="kard-btn kard-btn-xs" ng-click = "closeThisDialog('Some value')">Yes</button> -->
+	<button class="kard-btn kard-btn-sm kard-btn-negative" ng-click = "closeThisDialog('value')">No</button>
+
+</div>

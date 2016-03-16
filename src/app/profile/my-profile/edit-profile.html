@@ -1,0 +1,58 @@
+<form role="form" name="editProfileForm" novalidate class="profile-form">
+    <div class="form-group" ng-class="{ 'has-error' : editProfileForm.first_name.$invalid  && !editProfileForm.first_name.$pristine }" >
+      <label for="first_name">First Name</label>
+      <input ng-focus="firstNameFocused = true;" ng-blur="firstNameFocused = false"class="form-control" type="text" ng-model="profileData.first_name" placeholder = "First Name" name="first_name" maxlength="20" required/>
+      <p ng-show="editProfileForm.first_name.$invalid && !editProfileForm.first_name.$pristine && !firstNameFocused" class="help-block">First Name is Required.</p>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : editProfileForm.last_name.$invalid  && !editProfileForm.last_name.$pristine }" >
+      <label for="last_name">Last Name</label>
+      <input ng-focus="lastNameFocused = true;" ng-blur="lastNameFocused = false"class="form-control" type="text" 
+           ng-model="profileData.last_name" placeholder = "Last Name" name="last_name" maxlength="20" required/>
+      <p ng-show="editProfileForm.last_name.$invalid && !editProfileForm.last_name.$pristine && !lastNameFocused" class="help-block">Last Name is Required.</p>
+    </div>
+    <div class="form-group checkbox" ng-class="{ 'has-error' : editProfileForm.gender.$invalid  && !editProfileForm.gender.$pristine }" >
+      <p>Gender</p>
+      <div class="profile-group">
+        <div class="profile-checkbox-ctrl">
+          <input class="" id="male" type="radio" ng-model="profileData.genderVal" name="gender" value="1" />
+          <label for="male">Male</label>
+        </div>
+        <div class="profile-checkbox-ctrl">
+          <input class="" id="female" type="radio" ng-model="profileData.genderVal" name="gender" value="0"/>
+          <label for="female">Female</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group checkbox" ng-class="{ 'has-error' : editProfileForm.age.$invalid   && !editProfileForm.age.$pristine }" >
+      <p>Age</p>
+      <div class="profile-group">
+        <div class="profile-checkbox-ctrl">
+          <input class="" type="radio" ng-model="profileData.ageVal" name="age" id="lt20" value="0" />
+          <label for="lt20"> < 20</label>
+        </div>
+        <div class="profile-checkbox-ctrl">
+          <input class="" type="radio" ng-model="profileData.ageVal" name="age" id="ut25" value="1"/>
+          <label for="ut25">20 - 25</label>
+        </div>
+        <div class="profile-checkbox-ctrl">
+          <input class="" type="radio" ng-model="profileData.ageVal" name="age" id="ut30" value="2"/>
+          <label for="ut30">25 - 30</label>
+        </div>
+        <div class="profile-checkbox-ctrl">
+          <input class="" type="radio" ng-model="profileData.ageVal" name="age" id="ut35" value="3"/>
+          <label for="ut35">30 - 35</label>
+        </div>
+        <div class="profile-checkbox-ctrl">
+          <input class="" type="radio" ng-model="profileData.ageVal" name="age" id="gt35" value="4"/>
+          <label for="gt35"> > 35</label>
+        </div>
+      </div>
+    </div>
+    <div class="pull-right btn-wrapper">
+      <button type="submit" class="kard-btn kard-btn-sm " ng-disabled="editProfileForm.$invalid || apiWait || editProfileForm.$pristine"  ng-click="updateProfile($event); apiWait = true;">Save</button>
+      <a ng-href="#/profile/my-profile">
+        <button type="button" class="kard-btn kard-btn-sm kard-btn-negative" >Cancel</button>
+      </a>
+    </div>
+</form>
+

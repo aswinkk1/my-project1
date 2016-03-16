@@ -1,0 +1,213 @@
+.nav-tabs{
+	li{
+		&.new-tab{
+			a{
+				border: 1px solid #ddd;
+				margin: 0px;
+				margin-top: 3px;
+				&.first-tab{
+					margin-top: 3px;
+				}
+			}
+			&.active{
+				a{
+				margin-top: 0px;
+				border-top: 4px solid green;
+				border-bottom: 1px solid #ddd;
+				}
+			}
+		}
+	}
+}
+
+.dashboard{
+	h2{
+		font-family: 'Myriad Pro';
+		color:  rgba(51, 51, 51, 0.8);
+		font-size: 2.25em;
+		font-weight: 700;
+		line-height: 0.861;
+		text-align: left;
+	}
+	h3{
+		font-family: 'Myriad Pro';
+		color:  rgba(51, 51, 51, 0.8);
+		font-size: 1.563em;
+		font-weight: 400;
+		line-height: 1.24;
+		text-align: left;
+	}
+	.cards{
+		height: 66px;
+		padding: 0;
+	}
+	.add-card{
+			background-color:  #5eaa3e;
+			font-family: 'Myriad Pro';
+			color:  rgba(255, 255, 255, 0.7);
+			font-size: 2.5em;
+			font-weight: 400;
+			line-height: 0.775;
+			text-align: center;
+			height: 65px;
+			width: 75%;
+	}
+	.slick-initialized{
+		button{
+			background: transparent;
+		}
+		.slick-next:before {
+	    	content: url('../assets/images/right_arrow_small.png');
+		}
+		.slick-prev:before {
+	    	content: url('../assets/images/left_arrow_small.png');
+		}
+	}
+	.dashboard-activity{
+		padding: inherit;
+		.pic{
+			width: 50px;
+			height: 50px;
+		}
+		.pic-sub{
+			width: 30px;
+			height: 30px;
+		}
+		.vertical-aligner{
+			    display: flex;
+			    align-items: center;
+			    height: inherit;
+		}
+		.activity-row{
+			padding-top: 20px;
+			padding-left: 20px;
+			background-color:  #ffffff;
+			box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.07);
+			margin-bottom: 6px;
+		}
+		.activity-sub-row{
+			font-family: Lato;
+			margin-top: 24px;
+			margin-bottom: 24px;
+			padding: inherit;
+			font-weight: 400;
+			text-align: left;
+			&.name{
+				margin-top: calc(~"25px - 0.938em");
+				color:  #575859;
+				font-size: 0.938em;
+			}
+			&.location{
+				color:  rgba(89, 90, 91, 0.8);
+				font-size: 0.813em;
+				span{
+					padding-left: 8px;
+				}
+			}
+			&.desc{
+				font-family: 'Myriad Pro';
+				color:  #787b7e;
+				font-size: 1.125em;
+				line-height: 1;
+			}
+			&.thumbs-up{
+				font-family: 'Myriad Pro';
+				color:  #918686;
+				font-size: 0.813em;
+				transform: scaleX(1.0028);/* width and height properties ommitted due to transform */
+			}
+		}
+	}
+	.dashboard-input{
+		margin-top: 17px;
+		height: 43px;
+	}
+	.buttons{
+		margin-top: 54px;
+		margin-bottom: 34px;
+	}
+	.dashboard-button{
+		background-color: #5eaa3e;
+		font-family: 'Myriad Pro';
+		height: 67px;
+		border: none;
+		border-radius: 2px;
+		color:  rgba(255, 255, 255, 1);
+		font-size: 1.25em;
+		font-weight: 400;
+		text-align: center;
+	}
+	.dashboard-offers{
+		span{
+			font-family: 'Myriad Pro';
+			color:  #333333;
+			font-size: 1.25em;
+			font-weight: 400;
+			line-height: 1.2;
+			text-align: left;
+			.retailer{
+				color:  #5eaa3e;
+				font-weight: 700;
+			}
+		}
+	}
+	.new-section{
+		margin-top: 15px;
+	}
+	@media(max-width: 768px){
+		.xs-center{
+			h2{
+				text-align: center;
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+}
+
+
+.bottom{
+	width: 100%;
+	position: fixed;
+	//top: calc(~"100% - 101px");
+	bottom: 0;
+	background-color:  #fafafa;
+	box-shadow: 0px 1px 5px 0px rgba(191, 188, 188, 0.47);
+	text-align: center;
+	.container{
+		height: 100%;
+	}
+	.install-wrapper{
+		height: 100%;
+		h3{
+			font-size: 1.563em;
+			@media(min-width: 768px){
+				margin-top: 6%;
+			}
+		}
+		a{
+			&.install-button{
+	            background-color:  #5eaa3e;
+	            box-shadow: 0px 1px 4px 0px rgba(1, 2, 2, 0.24);
+	            height: 43px;
+	            margin: 20px 0px 10px 0px;
+	            font-family: 'Lato';
+	            color:  #fafbfb;
+	            font-size: 1.313em;
+	            font-weight: 400;
+	            line-height: 1.143;
+	            text-align: left;
+	            transform: scaleX(1.0105);
+			}
+		}
+	}
+}
+
+
+
+
+
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	border-top: 3px solid green;
+}
